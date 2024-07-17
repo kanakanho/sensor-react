@@ -24,14 +24,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          # yarnのキャッシュを効かすために設定 (npmのかたはnpmで)
           cache: yarn
       - name: yarn install
         run: yarn install
       - name: yarn build
         run: yarn build
-        # GIthubページは https://USERNAME.github.io/REPOSITORY_NAME/
-        # となるので、envを追加してviteのベースパスを変えるように設定します。
         env:
           GITHUB_PAGES: true
       - name: Upload artifact
